@@ -1,0 +1,19 @@
+Fore1: Hit the core
+
+x>>$ strings fore1.core
+......
+cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc{bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv}
+......
+
+arrange the string:
+
+cvqA        bnjrK       tews_       ghk9r
+eqacL       wgk83       hmkog       o987k
+tqazE       kgd43       ooyf0       5tfb_
+igwiX       j85eP       vbnk0       hjiou
+obxrC       gb_e_       ii87D       o087p
+rtuiT       rwqr7       rfgh_       tfcv}
+zahfF       fvbmH       n kiw
+reqc{       jklo3       utfb0
+
+flag : ALEXCTF{K33P_7H3_g00D_w0rk_up}
