@@ -1,0 +1,10 @@
+Fore2: Mail Client
+
+I am not sure what version of thunderbird was that...
+Have fun
+
+nc 195.154.53.62 2222
+
+x>>$ file core.1719
+core.1719: ELF 64-bit LSB core file x86-64, version 1 (SYSV), SVR4-style, from 'mutt'
+
