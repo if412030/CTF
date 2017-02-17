@@ -8,3 +8,48 @@ nc 195.154.53.62 2222
 x>>$ file core.1719
 core.1719: ELF 64-bit LSB core file x86-64, version 1 (SYSV), SVR4-style, from 'mutt'
 
+x>>$ nc 195.154.53.62 2222
+Email: 
+Password: 
+Invalid Email or password
+
+x>>$ strings core.1719 | grep "alex"
+....
+alexctf
+alexctf@example.com
+source ~/.mutt/alexctf
+set from = "alexctf@example.com"
+set realname = "alexctf"
+set postponed = +[alexctf]/Drafts
+....
+
+email: alexctf@example.com
+
+x>>$ strings core.1719 | grep "pass"
+passwd
+tp_pass = "e. en kv,dvlejhgouehg;oueh fenjhqeouhfouehejbge ef"
+
+x>>$ strings core.1719 | grep "e. en kv,dvlejhgouehg;oueh fenjhqeouhfouehejbge ef" -C2
+mple.com
+dksgkpdjg;kdj;gkje;gj;dkgv a enpginewognvln owkge  noejne
+e. en kv,dvlejhgouehg;oueh fenjhqeouhfouehejbge ef
+gpg --no-verbose --export --armor %r
+phrA
+--
+--
+172.17.0.2
+78932fb3f2a0
+tp_pass = "e. en kv,dvlejhgouehg;oueh fenjhqeouhfouehejbge ef"
+set from = "alexctf@example.com"
+set realname = "alexctf"
+
+password: dksgkpdjg;kdj;gkje;gj;dkgv a enpginewognvln owkge  noejne
+
+x>>$ nc 195.154.53.62 2222
+Email: alexctf@example.com
+Password: dksgkpdjg;kdj;gkje;gj;dkgv a enpginewognvln owkge  noejne
+1 new unread flag
+ALEXCTF{Mu77_Th3_CoRe}
+
+
+
