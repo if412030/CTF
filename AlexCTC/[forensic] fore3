@@ -1,0 +1,36 @@
+Fore3: USB probing
+
+One of our agents managed to sniff important piece of data transferred transmitted via USB,
+he told us that this pcap file contains all what we need to recover the data can you find it ?
+
+x>>$ file fore3.pcap
+fore3.pcap: tcpdump capture file (little-endian) - version 2.4 (Memory-mapped Linux USB, capture length 262144)
+
+Fire up wireshark to check device was hooked :
+
+There is USB stick:
+
+USB Mass Storage
+    Signature: 0x43425355
+    Tag: 0x00000a60
+    DataTransferLength: 0
+    Flags: 0x00
+    .000 .... = Target: 0x0 (0)
+    .... 0000 = LUN: 0x0
+    ...0 0110 = CDB Length: 0x06
+
+Sorted packet by length (more than 1000 bytes):
+
+63	22.300886	host	3.3.2	USB	8256	URB_BULK out
+119	32.028809	host	3.3.2	USB	16448	URB_BULK out
+39	16.098585	host	3.3.2	USB	24640	URB_BULK out
+101	26.404412	host	3.3.2	USB	61504	URB_BULK out
+
+check the biggest packect : 101	26.404412	host	3.3.2	USB	61504	URB_BULK out > found header .PNG
+
+0040   89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52  .PNG........IHDR
+0050   00 00 01 cc 00 00 00 82 08 06 00 00 01 bc f9 c8  ................
+
+Select packer > Export packet bytes as filename.png > open file contain flag
+
+flag : ALEXCTF{SN1FF_TH3_FL4G_0V3R_U58}
