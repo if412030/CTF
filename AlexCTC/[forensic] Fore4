@@ -1,0 +1,12 @@
+Fore4: Unknown format
+
+Once more our agents managed to sniff data passed over USB, they told us that this is high profile data 
+hidden by people knows what they are doing, they have dedicated devices for reading that secret file format.
+Can you help us finding what is the secret message?
+
+x>>$ file fore4.pcap
+fore4.pcap: tcpdump capture file (little-endian) - version 2.4 (Memory-mapped Linux USB, capture length 262144)
+
+Fire up wireshark again and digging for the files:
+
+
